@@ -1,4 +1,23 @@
 $(document).ready(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+  
+  
+  
+  
+  
   var userData = [
     { id: "d1", value: 10, date: "2013-01-04", transformed: false },
     { id: "d2", value: 11, date: "2013-02-21", transformed: false },
