@@ -6,6 +6,18 @@
     
 } */
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  
+}
+
+.margin-Left {
+  margin-left: 100px;
+}
+
 #description {
   background-color: rgb(235, 230, 221);
   margin-top: 10px;
