@@ -1,0 +1,71 @@
+/* .container{
+    width: 400px;
+    height: 200px;
+    border: 2px solid #720570 ;
+    background-color: rgb(235, 230, 221);
+    
+} */
+
+#description {
+  background-color: rgb(235, 230, 221);
+  margin-top: 10px;
+
+}
+
+.svg {
+  background-color: rgb(235, 230, 221);
+  height: 180px;
+  width: 100%;
+  
+  
+}
+
+.bar{
+    fill: #720570;
+}
+
+
+  .columns{
+      background: #2c3e50;
+    -webkit-columns: 100px 4;
+    -moz-columns: 100px 4;
+    columns: 100px 4;
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
+    column-gap: 0;
+    border: 2px solid red;
+    
+  }
+
+  .columns p {
+      
+    
+    display: block;
+    padding: 1em;
+    text-align: center;
+    
+  } 
+
+
+#graph
+ {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.green {
+  fill: rgb(143, 216, 137);
+}

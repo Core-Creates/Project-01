@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SweetTooth</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Insert bootstrap like repo link below -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.5/build/pure-min.css"
+      integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd"
+      crossorigin="anonymous"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-    <!-- Custom style sheet -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-</head>
-<body>
-    <header></header>
-    <aside></aside>
-    <main></main>
-    
-</body>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+        <!-- <div> -->
+      <div class="row">
+        <div class="col">
+          
+            
+            
+<!-- <svg class="svg" id="graph"></svg> -->
+            
+          </div>
+          <input id="graphInput" type="number">
+          <button id="addNewBtn">Add</button>
+          <p class="z-depth-5" id="graph"></p>
+        </div>
+        <!-- Page Content goes here -->
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js">ls</script>
+    <script src="script.js"></script>   
+  </body>
 </html>
+
+
+<!-- This is a graph of your blood sugar logged over a five day period.
+This allows the patient to view their blood sugar in a linear and
+easy to read format. The patient can utilize the graph to help
+with diet trends and keep a record to relay to their physician. -->
