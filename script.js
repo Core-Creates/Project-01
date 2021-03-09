@@ -127,4 +127,24 @@ $(document).ready(function () {
 
   draw(userData);
   // draw([{id: 'd1', value:10, date: '2013-01'},]);
+
+  
+  var data = null;
+
+  var xmlHttpReq = new XMLHttpRequest();
+  xmlHttpReq.withCredentials = true;
+  
+  xmlHttpReq.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+  
+  xmlHttpReq.open("GET", "https://api.dexcom.com/v2/users/self/calibrations?startDate=2017-06-16T08:00:00&endDate=2017-06-17T08:00:00");
+  xmlHttpReq.setRequestHeader("authorization", "Bearer {your_access_token}");
+  
+  xmlHttpReq.send(data);
+
+
+
 });
