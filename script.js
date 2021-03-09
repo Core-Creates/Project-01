@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, options);
   });
@@ -10,14 +10,14 @@ $(document).ready(function () {
 
   // Or with jQuery
 
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('.sidenav').sidenav();
   });
-  
-  
-  
-  
-  
+
+
+
+
+
   var userData = [
     { id: "d1", value: 10, date: "2013-01-04", transformed: false },
     { id: "d2", value: 11, date: "2013-02-21", transformed: false },
@@ -128,22 +128,44 @@ $(document).ready(function () {
   draw(userData);
   // draw([{id: 'd1', value:10, date: '2013-01'},]);
 
-  
+  // calls to decom sandbox environment
   var data = null;
 
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.withCredentials = true;
-  
+
   xmlHttpReq.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
       console.log(this.responseText);
     }
   });
+  var localDevelopment = true;
+
+  if (localDevelopment) {
+    var client_id = "EYCJETfiRrSVmqH8XyIGxscQpFqKGXnh";
+    var client_secret = "kqQJU4XWs6bpyYn9";
+    var redirect_uri = "http://127.0.0.1:5500/";
+  }
+  else {
+    var client_id = "DNA4fWlB85h6EmVKmEBUPdH5IG2LIjkp";
+    var client_secret = "8n5pnyaMTeFOCrVN";
+    var redirect_uri = "https://core-creates.github.io/Project-01/";
+
+  }
+  var urlParams = new URLSearchParams(window.location.search);
+  var mytoken = urlParams.get('code');
+  localStorage.setItem("applicationToken", mytoken);
+
+  if (mytoken === null || mytoken === undefined ){
+    window.location = `https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}`
+    
+  }
   
-  xmlHttpReq.open("GET", "https://api.dexcom.com/v2/users/self/calibrations?startDate=2017-06-16T08:00:00&endDate=2017-06-17T08:00:00");
-  xmlHttpReq.setRequestHeader("authorization", "Bearer {8n5pnyaMTeFOCrVN}");
+  console.log(mytoken);
   
-  xmlHttpReq.send(data);
+  // xmlHttpReq.setRequestHeader("authorization", "Bearer 8n5pnyaMTeFOCrVN");
+  // xmlHttpReq.send(data);
+  // console.log(data);
 
 
 
