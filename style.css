@@ -5,14 +5,90 @@
     background-color: rgb(235, 230, 221);
     
 } */
+h2{
+  font-size: 3vw;;
+  color:rgb(223,107,149);
+  font-family: 'Emilys Candy', cursive;
+  margin-left: 130px;
+  padding-top: 10px;
+  margin-top: auto;
+  width: 30%;
+  width: 60%;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+h3{
+  font-family: 'Emilys Candy', cursive;
+  font-size: 25px;
+  color: rgb(142,237,179);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+
+}
+
+.header-icon{
+  margin-right: 30px; 
+}
+
+
+
+.header{
+margin-top: 15px;  
+}
+
+#graphInput{
+  width: 20%;
+  border: solid rgb(142,237,179);
+}
+
+#icon{
+  background-color: rgb(214, 160, 169);
+}
+
+#addNewBtn{
+  border: none;
+  cursor: pointer;
+}
+
+#graphInput
+{
+  border-radius: 15px;
+}
+
+.material-icons{
+  margin-top: 30px;
+}
+
+
+.pink-2{
+  color: rgb(223, 107, 149);
+}
+
+
+.border-radius {
+  border-radius: 15px;
+}
+.border {
+  border: solid rgb(142,237,179);
+}
+
+#graph{
+  border: solid rgb(142,237,179);
+  width: 825px;
+  
+}
+
+.heading{
+  width: 925px;
+ 
+}
 
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
   
-}
+  }
+
+
 
 .margin-Left {
   margin-left: 100px;
@@ -28,8 +104,6 @@
   background-color: rgb(235, 230, 221);
   height: 180px;
   width: 100%;
-  
-  
 }
 
 .bar{
@@ -59,11 +133,11 @@
   } 
 
 
-#graph
+#graph,
+.graphInput
  {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: 127px;
   
 }
 
@@ -81,3 +155,8 @@
 .green {
   fill: rgb(143, 216, 137);
 }
+
+.indent {
+  margin-left: 400px;
+}
+

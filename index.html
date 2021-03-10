@@ -16,45 +16,63 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <title>Document</title>
   </head>
   <body>
-    <nav> <!-- navbar content here  --> </nav>
-
-  <ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-     
-      <a href="#user"><img class="circle center" src="assets/13-512.webp"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li class="center"><button ><a href="#!" class="margin-left"><i class="material-icons center" id="device">cloud</i>First Link With Icon</a></button></li>
-    <li class="center"><button><a href="#!" class="center" id="events">Second Link</a></button></li>
-    <li><div class="divider"></div></li>
-    <li class="center"><button><a class="subheader" id="dateRange">Subheader</a></button>
-    <li class="center"><button><a class="waves-effect center" href="#!">Third Link With Waves</a></button></li>
-  </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger" ><i class="material-icons" >menu</src></i></a>
-    <div class="container">
-        <!-- <div> -->
-      <div class="row">
-        <div class="col">
-          
-            
-            
-<!-- <svg class="svg" id="graph"></svg> -->
-            
-          </div>
-          <input id="graphInput" type="number">
-          <button id="addNewBtn">Add</button>
-          <p class="z-depth-5" id="graph"></p>
-        </div>
-        <!-- Page Content goes here -->
+    <div class="row">
+    <nav class="green accent-2 z-depth-5 graph">
+      <div class="col s6"><h2>SWEET-TOOTH &trade;</h2></div>
+      <div class="col s6">
+        <div class="material-icons header-icon " style="float:right">emoji_nature</div>
+      </div> 
       </div>
+    </nav>
+
+  <ul id="slide-out" class="sidenav pink lighten-2">
+    <li><div class="user-view ">
+     
+      <a href="#user"><img id="icon" class="circle center z-depth-5 graph" src="assets/13-512.webp"></a>
+    </div></li>
+    <li class="center ">
+      <button class="border-radius material-icons center z-depth-5 graph" style="font-size: 50px">emoji_nature<a href="#!" class="margin-left"><i id="device"></i></a></button><h3>Something</h3>
+
+    </li>
+    <li class="center"><button class="border-radius material-icons center z-depth-5 graph" style="font-size: 50px">emoji_nature <a href="#!" class="center" id="events"></a></button><h3>Something</h3></li>
+    <li class="center"><button class="border-radius material-icons center z-depth-5 graph"style="font-size: 50px">emoji_nature <a class="waves-effect center" href="#!"></a></button><h3>Something</h3></li>
+    <br>
+    <!-- <a href="#name"><span class="white-text name">John Doe</span></a>
+    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a> -->
+  </ul>
+  <div class="row">
+    <div class="col s1">
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="large material-icons pink-2" >menu</i></a>
     </div>
+    <div class="col s6 heading">
+      
+    </div>
+   
+              
+   
+  </div>   
+    
+    <container>
+    <div class="container">
+      </div class="row">
+      <div class="graphInput"> <input id="graphInput" type="number">
+        <i id="addNewBtn" class="material-icons">add_circle_outline</i></div>
+        <p class="z-depth-5 graph" id="graph"></p>
+      </div>    
+    </container>
+        
+  
+     
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
