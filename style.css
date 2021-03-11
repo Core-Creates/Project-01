@@ -1,27 +1,39 @@
-/* .container{
-    width: 400px;
-    height: 200px;
-    border: 2px solid #720570 ;
-    background-color: rgb(235, 230, 221);
-    
-} */
+p{
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke: .5px rgb(209, 12, 209);
+  -webkit-text-fill: 1px black;
+  
+ 
+}
+/* 2px rgb(216, 156, 216); */
 h2{
   font-size: 3vw;;
   color:rgb(223,107,149);
   font-family: 'Emilys Candy', cursive;
-  margin-left: 130px;
+  margin-left: 190px;
   padding-top: 10px;
   margin-top: auto;
   width: 30%;
   width: 60%;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  
 }
 h3{
   font-family: 'Emilys Candy', cursive;
   font-size: 25px;
   color: rgb(142,237,179);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+}
 
+h4{
+  font-family: 'Emilys Candy', cursive;
+  font-size: 15px;
+  color: rgb(142,237,179);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+}
+
+.input-indent{
+  margin-left: 120px;
 }
 
 .header-icon{
@@ -29,14 +41,15 @@ h3{
 }
 
 
-
 .header{
 margin-top: 15px;  
 }
 
 #graphInput{
+  margin-right: auto;
   width: 20%;
   border: solid rgb(142,237,179);
+  
 }
 
 #icon{
@@ -48,9 +61,19 @@ margin-top: 15px;
   cursor: pointer;
 }
 
+.graph{
+ margin-left: 40px;
+ background: rgb(235, 235, 230);
+ border-radius: 20px;
+}
+
 #graphInput
 {
   border-radius: 15px;
+  float: right;
+  
+  margin-top: 30px;
+  
 }
 
 .material-icons{
@@ -111,7 +134,7 @@ margin-top: 15px;
 }
 
 
-  .columns{
+.columns{
       background: #2c3e50;
     -webkit-columns: 100px 4;
     -moz-columns: 100px 4;
@@ -137,9 +160,9 @@ margin-top: 15px;
 .graphInput
  {
     display: block;
-    margin-left: 127px;
-  
-}
+ }
+
+ 
 
 .axis {
   font: 10px sans-serif;
@@ -158,5 +181,51 @@ margin-top: 15px;
 
 .indent {
   margin-left: 400px;
+}
+
+body{
+  background: linear-gradient(to bottom left, rgba(223, 107, 150, 0.363), rgba(140, 180, 159, 0.219));
+}
+
+.candy{
+  width: 40px;
+  height: 40px;
+  margin-top: 15px;
+  float: right;
+}
+
+#candy{
+  width: 80px;
+  height: 80px;
+  margin-left: 50px;
+  margin-top: 30px;  
+}
+
+#menu-header{
+  margin-left: 40px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(219, 56, 151, 0.897);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:rgba(219, 56, 151, 0.897);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(219, 56, 151, 0.897);
+}
+
+
+
+.description-text{
+  margin-left: 100px;
+  width: 60%;
+  font-size: 20px;
+  
+ 
+  /* width: 20%; */
 }
 
