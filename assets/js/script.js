@@ -145,7 +145,7 @@ $(document).ready(function () {
   }
 
   $("#addNewBtn").click(function (event) {
-    // todo - if user reinputs for the day.  search array and replace with new data.
+    
     var currentDate = moment().format("YYYY-MM-DD");
     userData = userData.filter(item => item.date != currentDate);
     var reading = parseInt($("#graphInput")[0].value);
@@ -154,7 +154,7 @@ $(document).ready(function () {
       date: currentDate,
     });
     console.log(userData)
-    // If length of userData exceeds 7, pop off the index 0
+   
     if(userData.length > 7){
       userData.reverse();
       userData.length = 7;
@@ -163,11 +163,37 @@ $(document).ready(function () {
     draw(userData);
     addDailyValueToWeeklyData(userData);
     });
+
+  $("#home-btn").click(function (event){
+      $("#device").hide();
+      $("#events").hide();
+      $("#home").show();
+    })
+  $("#device-btn").click(function (event){
+   
+    $("#events").hide();
+    $("#home").hide();
+    $("#device").show();
+  })
+
+  $("#events-btn").click(function (event){
+    $("#events").show();
+  $("#home").hide();
+  $("#device").hide();
+// todo - same as above bur for events;
+  })
+
+  
+
+  // // for debug purposes so we can code on a page we care about that's not the landing page
+  // $("#events").hide();
+  // $("#home").hide();
+  // $("#device").show();
+
+  
   var userData = getWeeklyData();
   draw(userData);
-  // draw([{id: 'd1', value:10, date: '2013-01'},]);
-
-  // calls to decom sandbox environment
+ 
   var data = null;
 
   var xmlHttpReq = new XMLHttpRequest();
@@ -202,6 +228,8 @@ $(document).ready(function () {
   
   console.log(mytoken);
   
+
+
   // xmlHttpReq.setRequestHeader("authorization", "Bearer 8n5pnyaMTeFOCrVN");
   // xmlHttpReq.send(data);
   // console.log(data);

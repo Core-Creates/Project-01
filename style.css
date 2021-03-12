@@ -72,8 +72,6 @@ margin-top: 15px;
   color: white;
   text-align: center;
   border: solid rgb(142,237,179);
-  
-  
 }
 
 #icon{
@@ -262,3 +260,8 @@ body{
   /* width: 20%; */
 }
 
+
+#home{}
+#events, #device{
+  display: none;
+}
