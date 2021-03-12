@@ -14,18 +14,48 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
   });
 
+  
+  function getWeeklyData(){
+    // return [
+    //   {"value":67,"date":"2021-03-12","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-13","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-14","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-15","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-16","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-17","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-18","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-19","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-20","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-21","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-22","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-23","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   {"value":67,"date":"2021-03-24","formatedDate":"2021-03-11T06:00:00.000Z"},
+    // ]
+    // Uncomment when done testing.
+    var data = localStorage.getItem("weeklyUserData");
+    if(data === null || data === undefined){
+      data = [];
+    } else{
+      data = JSON.parse(data);
+    }
+    return data;
+  }
+
+  function addDailyValueToWeeklyData(dataStorage){
+      localStorage.setItem("weeklyUserData", JSON.stringify(dataStorage));
+  }
+  
+//   [
+//     // { id: "d1", value: 10, date: "2013-01-04", transformed: false },
+//     // { id: "d2", value: 11, date: "2013-02-21", transformed: false },
+//     // { id: "d3", value: 12, date: "2013-03-30", transformed: false },
+//     // { id: "d4", value: 6, date: "2013-04-15", transformed: false },
+//     // { id: "d5", value: 14, date: "2013-05-01", transformed: false },
+// ];
 
 
-
-
-  var userData = [
-    { id: "d1", value: 10, date: "2013-01-04", transformed: false },
-    { id: "d2", value: 11, date: "2013-02-21", transformed: false },
-    { id: "d3", value: 12, date: "2013-03-30", transformed: false },
-    { id: "d4", value: 6, date: "2013-04-15", transformed: false },
-    { id: "d5", value: 14, date: "2013-05-01", transformed: false },
-  ];
   function draw(data) {
+    
     var margin = { top: 20, right: 20, bottom: 70, left: 40 },
       width = 600 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
@@ -55,10 +85,9 @@ $(document).ready(function () {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     data.forEach(function (d) {
-      if (!d.transformed) {
+      if (typeof d.formatedDate === "string" || typeof d.formatedDate === "undefined"){
         d.formatedDate = parseDate(d.date);
         d.value = +d.value;
-        d.transformed = true;
       }
     });
 
@@ -94,14 +123,15 @@ $(document).ready(function () {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Value ($)");
+      .text("(mg/dL )");
 
     svg
       .selectAll("bar")
       .data(data)
       .enter()
       .append("rect")
-      .style("fill", "steelblue")
+      .style("fill", "purple")
+      
       .attr("x", function (d) {
         return x(d.formatedDate);
       })
@@ -118,13 +148,22 @@ $(document).ready(function () {
     // todo - if user reinputs for the day.  search array and replace with new data.
     var currentDate = moment().format("YYYY-MM-DD");
     userData = userData.filter(item => item.date != currentDate);
+    var reading = parseInt($("#graphInput")[0].value);
     userData.push({
-      value: parseInt($("#graphInput")[0].value),
+      value: reading,
       date: currentDate,
     });
+    console.log(userData)
+    // If length of userData exceeds 7, pop off the index 0
+    if(userData.length > 7){
+      userData.reverse();
+      userData.length = 7;
+      // userData.reverse();
+    }
     draw(userData);
-  });
-
+    addDailyValueToWeeklyData(userData);
+    });
+  var userData = getWeeklyData();
   draw(userData);
   // draw([{id: 'd1', value:10, date: '2013-01'},]);
 
