@@ -38,21 +38,39 @@ h4{
 
 .header-icon{
   margin-right: 30px; 
+  
 }
 
-.container{
+
+
+
+#candy{
   margin-top: -100px;
+ 
+}
+.container{
+  margin-top: -10px;
 }
 
 .header{
 margin-top: 15px;  
 }
 
+#welcome{
+  margin-left: 30px;
+}
+
+#graphInput:hover{
+  background-color: rgba(219, 56, 151, 0.466);
+}
+
 
 #graphInput{
+  
   margin-right: 65px;
   width: 20%;
-  
+  color: white;
+  text-align: center;
   border: solid rgb(142,237,179);
   
   
@@ -80,11 +98,11 @@ margin-top: 15px;
   float: right;
   
   margin-top: 30px;
-  
 }
 
-.material-icons{
-  margin-top: 30px;
+
+.material-icons:hover{
+  background-color: rgb(142,237,179);
 }
 
 
@@ -104,8 +122,6 @@ margin-top: 15px;
   border: solid rgb(142,237,179);
   width: 700px;
   height: 300px;
-  
-  
 }
 
 .heading{
@@ -119,8 +135,6 @@ margin-top: 15px;
   margin-right: auto;
   
   }
-
-
 
 .margin-Left {
   margin-left: 100px;
@@ -197,10 +211,11 @@ body{
 }
 
 .candy{
-  width: 40px;
-  height: 40px;
-  margin-top: 15px;
+  margin-top: 40px;
   float: right;
+  border-radius: 40px;
+
+  
 }
 
 #candy{
@@ -210,8 +225,16 @@ body{
   margin-top: 30px;  
 }
 
+
+#menu-header:hover{
+  background-color: rgb(219, 56, 151, 0.897);
+  border-radius: 15px;
+}
+
+
 #menu-header{
-  margin-left: 40px;
+  /* margin-left: 40px; */
+
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

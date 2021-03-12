@@ -29,7 +29,7 @@
     <nav class="green accent-2 z-depth-5">
       <div class="col s6"><h2>SWEET-TOOTH &trade;</h2></div>
       <div class="col s6">
-        <div class="material-icons header-icon " style="float:right">emoji_nature</div>
+        <div class="material-icons header-icon" style="float:right">emoji_nature</div>
       </div> 
       </div>
     </nav>
@@ -54,15 +54,17 @@
 
   <div class="row">
     <div class="col s1.5">
-      <a href="#" data-target="slide-out" class="sidenav-trigger "><h3 id="menu-header">Sweet Tools</h3><i><img id="candy" src="assets/css/candy-01.png"></img></i></a>
+      <a href="#" data-target="slide-out" class="sidenav-trigger "><h3 id="menu-header">Sweet Tools</h3></a>
     </div>
-    <div class="col s6">
+    <div class="col s6" id="welcome">
       <p>Sweet-Tooth's&trade; purpose is to give the user as much control of their life as possible. Folks living
        with endocrine disorders face tough issues. Thinking of your condition is the last thing someone needs.
         We're here to help whether it's choosing the right meal tracking glucose levels, knowing which meals 
         and foods to eat.</p>
-  
-  </div>
+    </div>
+    <div id="lolipop">
+      <img src="assets/css/imgbin_lollipop-candy-land-png.png" alt="Candy" style="width: 100px; margin-top: -100px;">
+    </div>
     
     
    
@@ -73,12 +75,10 @@
     <div class="row">
 
       <div class="col s12">
-        
           <input id="graphInput" type="number" placeholder="Glucose Level">
-        <i id="addNewBtn"><i  class="candy material-icons">control_point</i></i>
-        
+        <i id="addNewBtn"><i  class="candy material-icons" style="font-size: 35px;">control_point</i></i>  
       </div>
-    
+     
       <div class="container">
         <svg class="z-depth-5 graph" id="graph"></svg>
       </div>   
