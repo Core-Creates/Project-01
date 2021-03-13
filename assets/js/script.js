@@ -194,11 +194,21 @@ $(document).ready(function () {
   var userData = getWeeklyData();
   draw(userData);
 
+
+
+
+
+
+  /************  API calls to dexcom API Begins *************************************************************************************/
+
+
   var data = null;
 
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.withCredentials = true;
 
+
+  /** Beginning of access code request function **/
   xmlHttpReq.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
       console.log(this.responseText);
@@ -225,38 +235,33 @@ $(document).ready(function () {
     window.location = `https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}`;
 
   }
+  /** Ending of access code authorization request function *********************************************/
 
-
-
-
-
-
-
-
-  /////////nonWorking code below
-
+// url to access the token url - where we are getting the (Site we are posting to )
   var tokenURL = `https://sandbox-api.dexcom.com/v2/oauth2/token`;
-
-  // console.log(mytoken);
-
-
-
-  // xmlHttpReq.setRequestHeader("authorization", "Bearer 8n5pnyaMTeFOCrVN");
-  // xmlHttpReq.send(data);
-  // console.log(data);
 
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
 
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
+
+      //Displays the response 
       console.log(this.responseText);
+
+      //parsing the response to grab the access token out
       var myToken = JSON.parse(this.responseText).access_token;
+
+      // Storing access token to local storage
       localStorage.setItem('token', myToken);
+      
+      // 
       console.log(myToken);
 
     }
   });
+
+  // posting to the token url (requesting a token)
   xhr.open("POST", tokenURL);
   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   xhr.setRequestHeader("cache-control", "no-cache");
@@ -265,14 +270,14 @@ $(document).ready(function () {
 
   xhr.send(data);
 
+// 
 
-  
-// user device imformation url
+  // user device imformation url
 
   var deviceUrl = `https://sandbox-api.dexcom.com/v2/users/self/devices`;
 
-//when clicked on the button device  this function will trigger
-  $("#device").click(function (event) {
+  //when clicked on the button device  this function will trigger
+  $("#device-btn").click(function (event) {
 
     // window.location = deviceUrl;
     var data = null;
@@ -290,7 +295,7 @@ $(document).ready(function () {
 
     if (mytoken) {
 
-      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
 
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
@@ -301,6 +306,12 @@ $(document).ready(function () {
 
       console.log(deviceInfo);
     }
+
+$('#contact-btn').click(function(events) {
+
+  window.location.href = "./assets/html/email.html";
+
+})
 
 
 
