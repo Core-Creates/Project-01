@@ -15,9 +15,17 @@ $(document).ready(function () {
   });
   
   
+ var history = localStorage.getItem();
+// set all [d] values to local storage
+// pull [d] values from local storage 
   
   
-  
+
+// iterate [d] values per user input
+
+
+
+
   var userData = [
     { id: "d1", value: 10, date: "2013-01-04", transformed: false },
     { id: "d2", value: 11, date: "2013-02-21", transformed: false },
@@ -27,8 +35,8 @@ $(document).ready(function () {
   ];
   function draw(data) {
     var margin = { top: 20, right: 20, bottom: 70, left: 40 },
-      width = 600 - margin.left - margin.right,
-      height = 300 - margin.top - margin.bottom;
+      width = 600  - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom;
 
     var dateFormat = "%Y-%m-%d";
     // Parse the date / time
@@ -87,6 +95,7 @@ $(document).ready(function () {
 
     svg
       .append("g")
+      .attr("height", 100) 
       .attr("class", "y axis")
       .call(yAxis)
       .append("text")
@@ -113,6 +122,7 @@ $(document).ready(function () {
         return height - y(d.value);
       });
   }
+  
 
   $("#addNewBtn").click(function (event) {
     // todo - if user reinputs for the day.  search array and replace with new data.

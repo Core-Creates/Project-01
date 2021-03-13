@@ -1,10 +1,10 @@
 p{
   -webkit-text-stroke: 2px;
   -webkit-text-stroke: .5px rgb(209, 12, 209);
-  -webkit-text-fill: 1px black;
-  
- 
+  -webkit-text-fill: 1px black; 
 }
+
+
 /* 2px rgb(216, 156, 216); */
 h2{
   font-size: 3vw;;
@@ -38,18 +38,40 @@ h4{
 
 .header-icon{
   margin-right: 30px; 
+  
 }
 
+
+
+
+#candy{
+  margin-top: -100px;
+ 
+}
+.container{
+  margin-top: -10px;
+}
 
 .header{
 margin-top: 15px;  
 }
 
+#welcome{
+  margin-left: 30px;
+}
+
+#graphInput:hover{
+  background-color: rgba(219, 56, 151, 0.466);
+}
+
+
 #graphInput{
-  margin-right: auto;
-  width: 20%;
-  border: solid rgb(142,237,179);
   
+  margin-right: 65px;
+  width: 20%;
+  color: white;
+  text-align: center;
+  border: solid rgb(142,237,179);
 }
 
 #icon{
@@ -62,6 +84,7 @@ margin-top: 15px;
 }
 
 .graph{
+ 
  margin-left: 40px;
  background: rgb(235, 235, 230);
  border-radius: 20px;
@@ -73,11 +96,11 @@ margin-top: 15px;
   float: right;
   
   margin-top: 30px;
-  
 }
 
-.material-icons{
-  margin-top: 30px;
+
+.material-icons:hover{
+  background-color: rgb(142,237,179);
 }
 
 
@@ -95,8 +118,8 @@ margin-top: 15px;
 
 #graph{
   border: solid rgb(142,237,179);
-  width: 825px;
-  
+  width: 700px;
+  height: 300px;
 }
 
 .heading{
@@ -110,8 +133,6 @@ margin-top: 15px;
   margin-right: auto;
   
   }
-
-
 
 .margin-Left {
   margin-left: 100px;
@@ -188,10 +209,11 @@ body{
 }
 
 .candy{
-  width: 40px;
-  height: 40px;
-  margin-top: 15px;
+  margin-top: 40px;
   float: right;
+  border-radius: 40px;
+
+  
 }
 
 #candy{
@@ -201,8 +223,16 @@ body{
   margin-top: 30px;  
 }
 
+
+#menu-header:hover{
+  background-color: rgb(219, 56, 151, 0.897);
+  border-radius: 15px;
+}
+
+
 #menu-header{
-  margin-left: 40px;
+  /* margin-left: 40px; */
+
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -221,11 +251,17 @@ body{
 
 
 .description-text{
-  margin-left: 100px;
+  margin-left: 20px;
   width: 60%;
   font-size: 20px;
+  margin-top: -30px;
   
  
   /* width: 20%; */
 }
 
+
+#home{}
+#events, #device{
+  display: none;
+}
