@@ -129,7 +129,7 @@ $(document).ready(function () {
   // draw([{id: 'd1', value:10, date: '2013-01'},]);
 
   // calls to decom sandbox environment
-  var data = null;
+  // var data = null;
 
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.withCredentials = true;
@@ -153,21 +153,133 @@ $(document).ready(function () {
 
   }
   var urlParams = new URLSearchParams(window.location.search);
-  var mytoken = urlParams.get('code');
-  localStorage.setItem("applicationToken", mytoken);
+  var myCode = urlParams.get('code');
+  localStorage.setItem("applicationAuthCode", myCode);
+  // if we don't have a auth code redirect user to login so they can get a token later
+  if (myCode === null || myCode === undefined) {
+    window.location = `https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}`;
 
-  if (mytoken === null || mytoken === undefined ){
-    window.location = `https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}`
-    
   }
-  
-  console.log(mytoken);
-  
-  // xmlHttpReq.setRequestHeader("authorization", "Bearer 8n5pnyaMTeFOCrVN");
-  // xmlHttpReq.send(data);
-  // console.log(data);
 
+
+
+
+
+
+
+
+  /////////nonWorking code below
+
+  var tokenURL = `https://sandbox-api.dexcom.com/v2/oauth2/token`;
   
+
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+      var myToken = JSON.parse(this.responseText).access_token;
+      localStorage.setItem('token', myToken);
+      console.log(myToken);
+      
+    }
+  });
+  xhr.open("POST", tokenURL);
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader("cache-control", "no-cache");
+  var data = `client_secret=${client_secret}&client_id=${client_id}&code=${myCode}&grant_type=authorization_code&redirect_uri=${redirect_uri}`;
+  
+  
+  xhr.send(data);
+
+
+  //   // copied code
+  //   var data = `client_secret=${client_secret}&client_id=${client_id}&code=${myCode}&grant_type=authorization_code&redirect_uri=${redirect_uri}`;
+
+  // var xhr = new XMLHttpRequest();
+  // xhr.withCredentials = true;
+
+  // xhr.addEventListener("readystatechange", function () {
+  //   if (this.readyState === 4) {
+  //     console.log(this.responseText);
+  //   }
+  // });
+
+
+  // xhr.open("POST", "https://api.dexcom.com/v2/oauth2/token");
+  // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  // xhr.setRequestHeader("cache-control", "no-cache");
+
+  // xhr.send(data);
+
+  // // copied code
+  // function GetToken(code) {
+
+  //   $.ajax({
+  //       type: 'POST',
+  //       url: 'https://sandbox-api.dexcom.com/v2/oauth2/token',
+  //       crossDomin: true,
+  //       headers: {
+  //           'Authorization': 'Basic ' + btoa(client_id +':'+ client_secret)
+  //       },
+  //       data: {
+  //           'grant_type': 'authorization_code',
+  //           'code': mytoken,
+  //           'redirect_uri': redirect_uri
+  //       },
+  //       success: function (data) {
+  //           $('#codeheading').text(JSON.stringify(data));
+  //       },
+  //       error: function (error) {
+  //           console.log(error);
+  //       }
+  //   });
+  // }
+  //   //
+
+
+
+  // console.log(mytoken);
+
+
+  var deviceUrl = `https://sandbox-api.dexcom.com/v2/users/self/devices`;
+
+  $("#device").click(function (event) {
+
+    // window.location = deviceUrl;
+    var data = null;
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    });
+    
+var mytoken = localStorage.getItem("token");
+
+if(mytoken){
+
+  xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+
+  xhr.setRequestHeader("authorization", "Bearer " + mytoken);
+
+  xhr.send();
+
+  var deviceInfo = urlParams.get("devices");
+  localStorage.setItem("devices", deviceInfo);
+
+  console.log(deviceInfo);
+}
+
+
+   
+
+  })
+
 
 
 
