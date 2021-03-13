@@ -14,8 +14,8 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
   });
 
-  
-  function getWeeklyData(){
+
+  function getWeeklyData() {
     // return [
     //   {"value":67,"date":"2021-03-12","formatedDate":"2021-03-11T06:00:00.000Z"},
     //   {"value":67,"date":"2021-03-13","formatedDate":"2021-03-11T06:00:00.000Z"},
@@ -33,29 +33,29 @@ $(document).ready(function () {
     // ]
     // Uncomment when done testing.
     var data = localStorage.getItem("weeklyUserData");
-    if(data === null || data === undefined){
+    if (data === null || data === undefined) {
       data = [];
-    } else{
+    } else {
       data = JSON.parse(data);
     }
     return data;
   }
 
-  function addDailyValueToWeeklyData(dataStorage){
-      localStorage.setItem("weeklyUserData", JSON.stringify(dataStorage));
+  function addDailyValueToWeeklyData(dataStorage) {
+    localStorage.setItem("weeklyUserData", JSON.stringify(dataStorage));
   }
-  
-//   [
-//     // { id: "d1", value: 10, date: "2013-01-04", transformed: false },
-//     // { id: "d2", value: 11, date: "2013-02-21", transformed: false },
-//     // { id: "d3", value: 12, date: "2013-03-30", transformed: false },
-//     // { id: "d4", value: 6, date: "2013-04-15", transformed: false },
-//     // { id: "d5", value: 14, date: "2013-05-01", transformed: false },
-// ];
+
+  //   [
+  //     // { id: "d1", value: 10, date: "2013-01-04", transformed: false },
+  //     // { id: "d2", value: 11, date: "2013-02-21", transformed: false },
+  //     // { id: "d3", value: 12, date: "2013-03-30", transformed: false },
+  //     // { id: "d4", value: 6, date: "2013-04-15", transformed: false },
+  //     // { id: "d5", value: 14, date: "2013-05-01", transformed: false },
+  // ];
 
 
   function draw(data) {
-    
+
     var margin = { top: 20, right: 20, bottom: 70, left: 40 },
       width = 600 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
@@ -85,7 +85,7 @@ $(document).ready(function () {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     data.forEach(function (d) {
-      if (typeof d.formatedDate === "string" || typeof d.formatedDate === "undefined"){
+      if (typeof d.formatedDate === "string" || typeof d.formatedDate === "undefined") {
         d.formatedDate = parseDate(d.date);
         d.value = +d.value;
       }
@@ -131,7 +131,7 @@ $(document).ready(function () {
       .enter()
       .append("rect")
       .style("fill", "purple")
-      
+
       .attr("x", function (d) {
         return x(d.formatedDate);
       })
@@ -145,7 +145,7 @@ $(document).ready(function () {
   }
 
   $("#addNewBtn").click(function (event) {
-    
+
     var currentDate = moment().format("YYYY-MM-DD");
     userData = userData.filter(item => item.date != currentDate);
     var reading = parseInt($("#graphInput")[0].value);
@@ -154,52 +154,47 @@ $(document).ready(function () {
       date: currentDate,
     });
     console.log(userData)
-   
-    if(userData.length > 7){
+
+    if (userData.length > 7) {
       userData.reverse();
       userData.length = 7;
       // userData.reverse();
     }
     draw(userData);
     addDailyValueToWeeklyData(userData);
-    });
+  });
 
-  $("#home-btn").click(function (event){
-      $("#device").hide();
-      $("#events").hide();
-      $("#home").show();
-    })
-  $("#device-btn").click(function (event){
-   
+  $("#home-btn").click(function (event) {
+    $("#device").hide();
+    $("#events").hide();
+    $("#home").show();
+  })
+  $("#device-btn").click(function (event) {
+
     $("#events").hide();
     $("#home").hide();
     $("#device").show();
   })
 
-  $("#events-btn").click(function (event){
+  $("#events-btn").click(function (event) {
     $("#events").show();
-  $("#home").hide();
-  $("#device").hide();
-// todo - same as above bur for events;
+    $("#home").hide();
+    $("#device").hide();
+    // todo - same as above bur for events;
   })
 
-  
+
 
   // // for debug purposes so we can code on a page we care about that's not the landing page
   // $("#events").hide();
   // $("#home").hide();
   // $("#device").show();
 
-<<<<<<< HEAD
-  // calls to decom sandbox environment
-  // var data = null;
-=======
-  
+
   var userData = getWeeklyData();
   draw(userData);
- 
+
   var data = null;
->>>>>>> 8fb9a546528fb16c5e5c20ffa5b09068d06f8098
 
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.withCredentials = true;
@@ -241,17 +236,14 @@ $(document).ready(function () {
   /////////nonWorking code below
 
   var tokenURL = `https://sandbox-api.dexcom.com/v2/oauth2/token`;
-  
-<<<<<<< HEAD
-=======
-  console.log(mytoken);
-  
+
+  // console.log(mytoken);
+
 
 
   // xmlHttpReq.setRequestHeader("authorization", "Bearer 8n5pnyaMTeFOCrVN");
   // xmlHttpReq.send(data);
   // console.log(data);
->>>>>>> 8fb9a546528fb16c5e5c20ffa5b09068d06f8098
 
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
@@ -262,69 +254,24 @@ $(document).ready(function () {
       var myToken = JSON.parse(this.responseText).access_token;
       localStorage.setItem('token', myToken);
       console.log(myToken);
-      
+
     }
   });
   xhr.open("POST", tokenURL);
   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   xhr.setRequestHeader("cache-control", "no-cache");
   var data = `client_secret=${client_secret}&client_id=${client_id}&code=${myCode}&grant_type=authorization_code&redirect_uri=${redirect_uri}`;
-  
-  
+
+
   xhr.send(data);
 
 
-  //   // copied code
-  //   var data = `client_secret=${client_secret}&client_id=${client_id}&code=${myCode}&grant_type=authorization_code&redirect_uri=${redirect_uri}`;
-
-  // var xhr = new XMLHttpRequest();
-  // xhr.withCredentials = true;
-
-  // xhr.addEventListener("readystatechange", function () {
-  //   if (this.readyState === 4) {
-  //     console.log(this.responseText);
-  //   }
-  // });
-
-
-  // xhr.open("POST", "https://api.dexcom.com/v2/oauth2/token");
-  // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-  // xhr.setRequestHeader("cache-control", "no-cache");
-
-  // xhr.send(data);
-
-  // // copied code
-  // function GetToken(code) {
-
-  //   $.ajax({
-  //       type: 'POST',
-  //       url: 'https://sandbox-api.dexcom.com/v2/oauth2/token',
-  //       crossDomin: true,
-  //       headers: {
-  //           'Authorization': 'Basic ' + btoa(client_id +':'+ client_secret)
-  //       },
-  //       data: {
-  //           'grant_type': 'authorization_code',
-  //           'code': mytoken,
-  //           'redirect_uri': redirect_uri
-  //       },
-  //       success: function (data) {
-  //           $('#codeheading').text(JSON.stringify(data));
-  //       },
-  //       error: function (error) {
-  //           console.log(error);
-  //       }
-  //   });
-  // }
-  //   //
-
-
-
-  // console.log(mytoken);
-
+  
+// user device imformation url
 
   var deviceUrl = `https://sandbox-api.dexcom.com/v2/users/self/devices`;
 
+//when clicked on the button device  this function will trigger
   $("#device").click(function (event) {
 
     // window.location = deviceUrl;
@@ -338,25 +285,25 @@ $(document).ready(function () {
         console.log(this.responseText);
       }
     });
-    
-var mytoken = localStorage.getItem("token");
 
-if(mytoken){
+    var mytoken = localStorage.getItem("token");
 
-  xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+    if (mytoken) {
 
-  xhr.setRequestHeader("authorization", "Bearer " + mytoken);
+      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
 
-  xhr.send();
+      xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
-  var deviceInfo = urlParams.get("devices");
-  localStorage.setItem("devices", deviceInfo);
+      xhr.send();
 
-  console.log(deviceInfo);
-}
+      var deviceInfo = urlParams.get("devices");
+      localStorage.setItem("devices", deviceInfo);
+
+      console.log(deviceInfo);
+    }
 
 
-   
+
 
   })
 
