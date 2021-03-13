@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".sidenav");
     var instances = M.Sidenav.init(elems, options);
   });
 
@@ -11,9 +11,8 @@ $(document).ready(function () {
   // Or with jQuery
 
   $(document).ready(function () {
-    $('.sidenav').sidenav();
+    $(".sidenav").sidenav();
   });
-
 
   function getWeeklyData() {
     // return [
@@ -53,9 +52,7 @@ $(document).ready(function () {
   //     // { id: "d5", value: 14, date: "2013-05-01", transformed: false },
   // ];
 
-
   function draw(data) {
-
     var margin = { top: 20, right: 20, bottom: 70, left: 40 },
       width = 600 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
@@ -85,7 +82,10 @@ $(document).ready(function () {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     data.forEach(function (d) {
-      if (typeof d.formatedDate === "string" || typeof d.formatedDate === "undefined") {
+      if (
+        typeof d.formatedDate === "string" ||
+        typeof d.formatedDate === "undefined"
+      ) {
         d.formatedDate = parseDate(d.date);
         d.value = +d.value;
       }
@@ -145,15 +145,14 @@ $(document).ready(function () {
   }
 
   $("#addNewBtn").click(function (event) {
-
     var currentDate = moment().format("YYYY-MM-DD");
-    userData = userData.filter(item => item.date != currentDate);
+    userData = userData.filter((item) => item.date != currentDate);
     var reading = parseInt($("#graphInput")[0].value);
     userData.push({
       value: reading,
       date: currentDate,
     });
-    console.log(userData)
+    console.log(userData);
 
     if (userData.length > 7) {
       userData.reverse();
@@ -169,14 +168,14 @@ $(document).ready(function () {
     $("#events").hide();
     $("#home").show();
     $("#contact").hide();
-  })
+  });
   $("#device-btn").click(function (event) {
-
     $("#events").hide();
     $("#home").hide();
     $("#device").show();
     $("#contact").hide();
-  })
+    //device information
+  });
 
   $("#events-btn").click(function (event) {
     $("#events").show();
@@ -184,47 +183,25 @@ $(document).ready(function () {
     $("#device").hide();
     $("#contact").hide();
 
-    // todo - same as above bur for events;
-  })
+    // calibrations
+  });
 
   $("#contact-btn").click(function (event) {
-
-   
-
-      window.location.href = "./assets/html/email.html";
-    
-    
-
     $("#events").hide();
     $("#home").hide();
     $("#device").hide();
     $("#contact").show();
-    // todo - same as above bur for events;
-  })
-
-
-  // // for debug purposes so we can code on a page we care about that's not the landing page
-  // $("#events").hide();
-  // $("#home").hide();
-  // $("#device").show();
-
+  });
 
   var userData = getWeeklyData();
   draw(userData);
 
-
-
-
-
-
   /************  API calls to dexcom API Begins *************************************************************************************/
-
 
   var data = null;
 
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.withCredentials = true;
-
 
   /** Beginning of access code request function **/
   xmlHttpReq.addEventListener("readystatechange", function () {
@@ -238,24 +215,21 @@ $(document).ready(function () {
     var client_id = "EYCJETfiRrSVmqH8XyIGxscQpFqKGXnh";
     var client_secret = "kqQJU4XWs6bpyYn9";
     var redirect_uri = "http://127.0.0.1:5500/";
-  }
-  else {
+  } else {
     var client_id = "DNA4fWlB85h6EmVKmEBUPdH5IG2LIjkp";
     var client_secret = "8n5pnyaMTeFOCrVN";
     var redirect_uri = "https://core-creates.github.io/Project-01/";
-
   }
   var urlParams = new URLSearchParams(window.location.search);
-  var myCode = urlParams.get('code');
+  var myCode = urlParams.get("code");
   localStorage.setItem("applicationAuthCode", myCode);
   // if we don't have a auth code redirect user to login so they can get a token later
   if (myCode === null || myCode === undefined) {
     window.location = `https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}`;
-
   }
   /** Ending of access code authorization request function *********************************************/
 
-// url to access the token url - where we are getting the (Site we are posting to )
+  // url to access the token url - where we are getting the (Site we are posting to )
   var tokenURL = `https://sandbox-api.dexcom.com/v2/oauth2/token`;
 
   var xhr = new XMLHttpRequest();
@@ -263,19 +237,17 @@ $(document).ready(function () {
 
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
-
-      //Displays the response 
+      //Displays the response
       console.log(this.responseText);
 
       //parsing the response to grab the access token out
       var myToken = JSON.parse(this.responseText).access_token;
 
       // Storing access token to local storage
-      localStorage.setItem('token', myToken);
-      
-      // 
-      console.log(myToken);
+      localStorage.setItem("token", myToken);
 
+      //
+      console.log(myToken);
     }
   });
 
@@ -285,10 +257,9 @@ $(document).ready(function () {
   xhr.setRequestHeader("cache-control", "no-cache");
   var data = `client_secret=${client_secret}&client_id=${client_id}&code=${myCode}&grant_type=authorization_code&redirect_uri=${redirect_uri}`;
 
-
   xhr.send(data);
 
-// 
+  //
 
   // user device imformation url
 
@@ -296,7 +267,6 @@ $(document).ready(function () {
 
   //when clicked on the button device  this function will trigger
   $("#device-btn").click(function (event) {
-
     // window.location = deviceUrl;
     var data = null;
 
@@ -312,8 +282,10 @@ $(document).ready(function () {
     var mytoken = localStorage.getItem("token");
 
     if (mytoken) {
-
-      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+      xhr.open(
+        "GET",
+        "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00"
+      );
 
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
@@ -324,15 +296,5 @@ $(document).ready(function () {
 
       console.log(deviceInfo);
     }
-
-
-
-
-
-
-  })
-
-
-
-
+  });
 });

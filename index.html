@@ -28,7 +28,7 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <title>Document</title>
+    <title>Sweet-Tooth</title>
   </head>
   <body>
     <div class="row">
@@ -101,9 +101,15 @@
 
     <div class="row">
       <div class="col s1.5">
-        <a href="#" data-target="slide-out" class="sidenav-trigger"
-          ><h3 id="menu-header">Sweet Tools</h3></a
-        >
+        <div>
+          <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <h3 id="menu-header">Sweet Tools</h3>
+            <img
+              id="arrow"
+              class="circle center z-depth-5"
+              src="assets/css/pngwing.com.png" /><a href="#user"> </a
+          ></a>
+        </div>
       </div>
       <div class="col s6" id="welcome">
         <p>
@@ -153,9 +159,32 @@
       </div>
     </div>
     <div id="device" class="row">
-      <div class="col margin-Left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, sunt ipsum. Perspiciatis deserunt necessitatibus tenetur. Odit distinctio enim amet nemo perferendis in aliquam ratione rem fuga. Dolorem ut minus incidunt.</div>
+      <div class="col margin-Left">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, sunt
+        ipsum. Perspiciatis deserunt necessitatibus tenetur. Odit distinctio
+        enim amet nemo perferendis in aliquam ratione rem fuga. Dolorem ut minus
+        incidunt.
+      </div>
     </div>
     <div id="events" class="row">events</div>
+    <div id="contact" class="row"><div class="row input-indent">
+      <div class="col s12 m6">
+        <div class="card z-depth-5">
+          <div class="card-content">
+            <form id="myForm">
+              <input type="hidden" name="contact_number" />
+              <label>Name</label>
+              <input type="text" name="user_name" />
+              <label>Email</label>
+              <input type="email" name="user_email" />
+              <label>Message</label>
+              <textarea name="message"></textarea>
+              <input type="submit" value="Send" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
@@ -163,12 +192,9 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3js.org/d3-scale.v3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    >
-      ls
-    </script>
-    <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/email.js"></script>
   </body>
 </html>
 
