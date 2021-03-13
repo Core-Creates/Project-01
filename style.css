@@ -262,6 +262,7 @@ body{
 
 
 #home{}
-#events, #device{
+#events, #device,
+#contact{
   display: none;
 }

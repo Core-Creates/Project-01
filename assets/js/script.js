@@ -168,21 +168,39 @@ $(document).ready(function () {
     $("#device").hide();
     $("#events").hide();
     $("#home").show();
+    $("#contact").hide();
   })
   $("#device-btn").click(function (event) {
 
     $("#events").hide();
     $("#home").hide();
     $("#device").show();
+    $("#contact").hide();
   })
 
   $("#events-btn").click(function (event) {
     $("#events").show();
     $("#home").hide();
     $("#device").hide();
+    $("#contact").hide();
+
     // todo - same as above bur for events;
   })
 
+  $("#contact-btn").click(function (event) {
+
+   
+
+      window.location.href = "./assets/html/email.html";
+    
+    
+
+    $("#events").hide();
+    $("#home").hide();
+    $("#device").hide();
+    $("#contact").show();
+    // todo - same as above bur for events;
+  })
 
 
   // // for debug purposes so we can code on a page we care about that's not the landing page
@@ -307,11 +325,7 @@ $(document).ready(function () {
       console.log(deviceInfo);
     }
 
-$('#contact-btn').click(function(events) {
 
-  window.location.href = "./assets/html/email.html";
-
-})
 
 
 
