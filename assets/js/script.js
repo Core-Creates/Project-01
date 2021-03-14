@@ -283,7 +283,7 @@ $(document).ready(function () {
   //when clicked on the button device  this function will trigger
   $("#device-btn").click(function (event) {
     // window.location = deviceUrl;
-    var data = null;
+    // var data = null;
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -297,19 +297,16 @@ $(document).ready(function () {
     var mytoken = localStorage.getItem("token");
 
     if (mytoken) {
-      xhr.open(
-        "GET",
-        "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00"
-      );
+
+      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
 
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
-      xhr.send();
+      xhr.send(data);
 
       var deviceInfo = urlParams.get("devices");
       localStorage.setItem("devices", deviceInfo);
-
-      console.log(deviceInfo);
+      
     }
   });
   /********************************************************************** Ending of device button trigger event*********************/
