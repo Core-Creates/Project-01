@@ -500,7 +500,7 @@ $(document).ready(function () {
       xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
-      xhr.send(data);
+      xhr.send();
       /****************************************************************** Ending of Estimated glucose value (EGV) data call*/
     }
 
