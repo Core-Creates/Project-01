@@ -316,11 +316,12 @@ $(document).ready(function () {
 
 
 
-      if (deviceInfo !== null) {
+      if (deviceInfo !== null && deviceInfo !== undefined) {
 
         let devi = document.querySelector("#device-div");
 
         devi.append(deviceInfo);
+        
 
 
       }
@@ -333,6 +334,7 @@ $(document).ready(function () {
 
         header3.textContent = devi.append('No Device model info, the user is using a mobile phone glucose meter adapter');
         // document.body.insertBefore();
+        
 
       }
 
