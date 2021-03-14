@@ -166,24 +166,21 @@ $(document).ready(function () {
   $("#home-btn").click(function (event) {
     $("#device").hide();
     $("#events").hide();
-    $("#home").show();
     $("#contact").hide();
+    $("#home").show();
   });
   $("#device-btn").click(function (event) {
     $("#events").hide();
     $("#home").hide();
-    $("#device").show();
     $("#contact").hide();
-    //device information
+    $("#device").show();
   });
 
   $("#events-btn").click(function (event) {
-    $("#events").show();
     $("#home").hide();
     $("#device").hide();
     $("#contact").hide();
-
-    // calibrations
+    $("#events").show();
   });
 
   $("#contact-btn").click(function (event) {
@@ -282,16 +279,16 @@ $(document).ready(function () {
 
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        console.log(this.responseText);
-        var response = JSON.parse(this.responseText);
+        // console.log(this.responseText);
+        var devices = JSON.parse(this.responseText);
 
         // saves device info to local storage
-        var deviceInfo = localStorage.setItem(
+        localStorage.setItem(
           "devices",
-          JSON.stringify(response)
+          JSON.stringify(devices)
         );
+        addJsonToDom("#device-div", devices,  "No Device model info, the user is using a mobile phone glucose meter adapter");
 
-        // console.log(deviceInfo);
       }
     });
 
@@ -307,25 +304,25 @@ $(document).ready(function () {
 
       xhr.send(data);
 
-      var deviceInfo = localStorage.getItem("devices");
-      // deviceInfo = localStorage.setItem("devices", deviceInfo);
+      // var deviceInfo = localStorage.getItem("devices");
+      // // deviceInfo = localStorage.setItem("devices", deviceInfo);
 
-      if (deviceInfo !== null && deviceInfo !== undefined) {
-        let devi = document.querySelector("#device-div");
+      // if (deviceInfo !== null && deviceInfo !== undefined) {
+      //   let devi = document.querySelector("#device-div");
 
-        devi.append(deviceInfo);
-      } else {
-        let devi = document.querySelector("#device-div");
-        breaks = document.createElement("br");
+      //   devi.append(deviceInfo);
+      // } else {
+      //   let devi = document.querySelector("#device-div");
+      //   breaks = document.createElement("br");
 
-        devi.append(breaks);
-        header3 = document.createElement("h3");
+      //   devi.append(breaks);
+      //   header3 = document.createElement("h3");
 
-        header3.textContent = devi.append(
-          "No Device model info, the user is using a mobile phone glucose meter adapter"
-        );
-        // document.body.insertBefore();
-      }
+      //   header3.textContent = devi.append(
+      //     "No Device model info, the user is using a mobile phone glucose meter adapter"
+      //   );
+      //   // document.body.insertBefore();
+      // }
     }
   });
   /********************************************************************** Ending of device button trigger event*********************/
@@ -419,9 +416,10 @@ $(document).ready(function () {
       
       var stats = getLocalStorageItem("stats", {});
       var evg = getLocalStorageItem("evgs", {});
+
       
-      addJsonToDom("#stat-div", stats);
-      addJsonToDom("#evg-div", evg);
+      addJsonToDom("#stat-div", stats, "No Stats data - todo");
+      addJsonToDom("#evg-div", evg, "No EVG Data, - todo message");
 
       xhr.open(
         "POST",

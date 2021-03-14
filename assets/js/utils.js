@@ -27,12 +27,19 @@ function syntaxHighlight(json) {
   }
 
 
-function addJsonToDom(elementId, data){
-  if (data !== null) {
-    let divContent = document.querySelector(elementId);
+function addJsonToDom(elementId, data, error_message){
+  let divContent = document.querySelector(elementId);
+  if (data !== null && Object.keys(data).length) {
+    
     var pre = document.createElement("pre");
     pre.innerHTML = `${syntaxHighlight(data)}`;
     divContent.append(pre);
+  } else {
+    breaks = document.createElement("br");
+    divContent.append(breaks);
+    header3 = document.createElement("h3");
+    header3.textContent = error_message;
+    divContent.append(header3);
   }
 }
 
