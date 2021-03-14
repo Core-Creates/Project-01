@@ -291,6 +291,12 @@ $(document).ready(function () {
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
         console.log(this.responseText);
+        var response = JSON.parse(this.responseText);
+
+        // saves device info to local storage
+        var deviceInfo = localStorage.setItem("devices", JSON.stringify(response));
+
+        // console.log(deviceInfo);
       }
     });
 
@@ -304,9 +310,32 @@ $(document).ready(function () {
 
       xhr.send(data);
 
-      var deviceInfo = urlParams.get("devices");
-      localStorage.setItem("devices", deviceInfo);
-      
+      var deviceInfo = localStorage.getItem("devices");
+      // deviceInfo = localStorage.setItem("devices", deviceInfo);
+
+
+
+
+      if (deviceInfo !== null) {
+
+        let devi = document.querySelector("#device-div");
+
+        devi.append(deviceInfo);
+
+
+      }
+      else {
+        let devi = document.querySelector("#device-div");
+        breaks = document.createElement('br');
+
+        devi.append(breaks);
+        header3 = document.createElement('h3');
+
+        header3.textContent = devi.append('No Device model info, the user is using a mobile phone glucose meter adapter');
+        // document.body.insertBefore();
+
+      }
+
     }
   });
   /********************************************************************** Ending of device button trigger event*********************/
@@ -339,6 +368,8 @@ $(document).ready(function () {
 
         // displays response in console
         console.log(this.responseText);
+
+
       }
     });
     /********************************* Ending of readystate checks ***/
@@ -400,9 +431,30 @@ $(document).ready(function () {
 
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
+          // 
           console.log(this.responseText);
+          // 
+          // var response = JSON.parse(this.responseText);
+          var response = JSON.parse(this.responseText);
+
+          // saves stats info to local storage
+          var statInfo = localStorage.setItem("stats", JSON.stringify(response));
+
+
         }
       });
+
+      var status = localStorage.getItem("stats");
+
+      if (status !== null) {
+        let divContent = document.querySelector("#stat-div");
+        var header3 = document.createElement('h3');
+
+        header3.textContent = divContent.append(status);
+
+
+      }
+
 
       xhr.open("POST", "https://sandbox-api.dexcom.com/v2/users/self/statistics?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
@@ -424,8 +476,26 @@ $(document).ready(function () {
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
           console.log(this.responseText);
+          // 
+          // var response = JSON.parse(this.responseText);
+          var response = JSON.parse(this.responseText);
+
+          // saves stats info to local storage
+          var evgsInfo = localStorage.setItem("evgs", JSON.stringify(response));
+
         }
       });
+
+      var evg = localStorage.getItem("evgs");
+
+      if (evg !== null) {
+        let divContent = document.querySelector("#evg-div");
+        var header3 = document.createElement('h3');
+
+        header3.textContent = divContent.append(evg);
+
+      }
+
 
       xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
