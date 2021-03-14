@@ -205,19 +205,15 @@ $(document).ready(function () {
 
   /** Beginning of access code request function *********************************************************************************/
 
-
   /**function checks for ready change status*************************/
   xmlHttpReq.addEventListener("readystatechange", function () {
-
     // runs if ready state is good
     if (this.readyState === 4) {
-
       // logs response to console
       console.log(this.responseText);
     }
   });
   /************************* Ending of ready state change function ***/
-
 
   var localDevelopment = true;
 
@@ -238,11 +234,7 @@ $(document).ready(function () {
     window.location = `https://sandbox-api.dexcom.com/v2/oauth2/login?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}`;
   }
 
-
   /********************************************************************* Ending of access code authorization request function ***/
-
-
-
 
   // url to access the token url - where we are getting the (Site we are posting to )
   var tokenURL = `https://sandbox-api.dexcom.com/v2/oauth2/token`;
@@ -294,7 +286,10 @@ $(document).ready(function () {
         var response = JSON.parse(this.responseText);
 
         // saves device info to local storage
-        var deviceInfo = localStorage.setItem("devices", JSON.stringify(response));
+        var deviceInfo = localStorage.setItem(
+          "devices",
+          JSON.stringify(response)
+        );
 
         // console.log(deviceInfo);
       }
@@ -303,8 +298,10 @@ $(document).ready(function () {
     var mytoken = localStorage.getItem("token");
 
     if (mytoken) {
-
-      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+      xhr.open(
+        "GET",
+        "https://sandbox-api.dexcom.com/v2/users/self/devices?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00"
+      );
 
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
@@ -313,119 +310,92 @@ $(document).ready(function () {
       var deviceInfo = localStorage.getItem("devices");
       // deviceInfo = localStorage.setItem("devices", deviceInfo);
 
-
-
-
       if (deviceInfo !== null && deviceInfo !== undefined) {
-
         let devi = document.querySelector("#device-div");
 
         devi.append(deviceInfo);
-        
-
-
-      }
-      else {
+      } else {
         let devi = document.querySelector("#device-div");
-        breaks = document.createElement('br');
+        breaks = document.createElement("br");
 
         devi.append(breaks);
-        header3 = document.createElement('h3');
+        header3 = document.createElement("h3");
 
-        header3.textContent = devi.append('No Device model info, the user is using a mobile phone glucose meter adapter');
+        header3.textContent = devi.append(
+          "No Device model info, the user is using a mobile phone glucose meter adapter"
+        );
         // document.body.insertBefore();
-        
-
       }
-
     }
   });
   /********************************************************************** Ending of device button trigger event*********************/
 
-
-
-
   /**Events button trigger beginning**************************************************************************************************/
-  $('#events-btn').on('click', function (events) {
-
-
-
-
+  $("#events-btn").on("click", function (events) {
     // creating new http request
     var httpRequ = new XMLHttpRequest();
 
     // passes creds inbedded in token with request
     httpRequ.withCredentials = true;
 
-
-
     var data = `client_secret=${client_secret}&client_id=${client_id}&code=${myCode}&grant_type=authorization_code&redirect_uri=${redirect_uri}`;
-
 
     /** checks if the state is ready to change **********************/
     httpRequ.addEventListener("readystatechange", function () {
-
       // runs if readyState is good
       if (this.readyState === 4) {
-
         // displays response in console
         console.log(this.responseText);
-
-
       }
     });
     /********************************* Ending of readystate checks ***/
-
 
     var mytoken = localStorage.getItem("token");
 
     // when valid token is issued this will run
     if (mytoken) {
-
-
-
       /** Beginning of Statistics call **************************************************************************************/
       var data = JSON.stringify({
-        "targetRanges": [
+        targetRanges: [
           {
-            "name": "day",
-            "startTime": "06:00:00",
-            "endTime": "22:00:00",
-            "egvRanges": [
+            name: "day",
+            startTime: "06:00:00",
+            endTime: "22:00:00",
+            egvRanges: [
               {
-                "name": "urgentLow",
-                "bound": 55
+                name: "urgentLow",
+                bound: 55,
               },
               {
-                "name": "low",
-                "bound": 70
+                name: "low",
+                bound: 70,
               },
               {
-                "name": "high",
-                "bound": 180
-              }
-            ]
+                name: "high",
+                bound: 180,
+              },
+            ],
           },
           {
-            "name": "night",
-            "startTime": "22:00:00",
-            "endTime": "06:00:00",
-            "egvRanges": [
+            name: "night",
+            startTime: "22:00:00",
+            endTime: "06:00:00",
+            egvRanges: [
               {
-                "name": "urgentLow",
-                "bound": 55
+                name: "urgentLow",
+                bound: 55,
               },
               {
-                "name": "low",
-                "bound": 80
+                name: "low",
+                bound: 80,
               },
               {
-                "name": "high",
-                "bound": 200
-              }
-            ]
-          }
-        ]
+                name: "high",
+                bound: 200,
+              },
+            ],
+          },
+        ],
       });
 
       var xhr = new XMLHttpRequest();
@@ -433,41 +403,36 @@ $(document).ready(function () {
 
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-          // 
+          //
           console.log(this.responseText);
-          // 
+          //
           // var response = JSON.parse(this.responseText);
           var response = JSON.parse(this.responseText);
 
           // saves stats info to local storage
-          var statInfo = localStorage.setItem("stats", JSON.stringify(response));
-
-
+          var statInfo = localStorage.setItem(
+            "stats",
+            JSON.stringify(response)
+          );
         }
       });
+      
+      var stats = getLocalStorageItem("stats", {});
+      var evg = getLocalStorageItem("evgs", {});
+      
+      addJsonToDom("#stat-div", stats);
+      addJsonToDom("#evg-div", evg);
 
-      var status = localStorage.getItem("stats");
-
-      if (status !== null) {
-        let divContent = document.querySelector("#stat-div");
-        var header3 = document.createElement('h3');
-
-        header3.textContent = divContent.append(status);
-
-
-      }
-
-
-      xhr.open("POST", "https://sandbox-api.dexcom.com/v2/users/self/statistics?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+      xhr.open(
+        "POST",
+        "https://sandbox-api.dexcom.com/v2/users/self/statistics?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00"
+      );
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
       xhr.setRequestHeader("content-type", "application/json");
 
       xhr.send(data);
 
       /****************************************************************************************** Ending of statistics call ***/
-
-
-
 
       /**  Beginning of Estimated glucose value (EGV) data call ************************************************************/
       var data = null;
@@ -478,37 +443,25 @@ $(document).ready(function () {
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
           console.log(this.responseText);
-          // 
+          //
           // var response = JSON.parse(this.responseText);
           var response = JSON.parse(this.responseText);
 
           // saves stats info to local storage
           var evgsInfo = localStorage.setItem("evgs", JSON.stringify(response));
-
         }
       });
 
-      var evg = localStorage.getItem("evgs");
-
-      if (evg !== null) {
-        let divContent = document.querySelector("#evg-div");
-        var header3 = document.createElement('h3');
-
-        header3.textContent = divContent.append(evg);
-
-      }
-
-
-      xhr.open("GET", "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00");
+      xhr.open(
+        "GET",
+        "https://sandbox-api.dexcom.com/v2/users/self/egvs?startDate=2017-06-16T15:30:00&endDate=2017-06-16T15:45:00"
+      );
       xhr.setRequestHeader("authorization", "Bearer " + mytoken);
 
       xhr.send();
       /****************************************************************** Ending of Estimated glucose value (EGV) data call*/
     }
-
-
   });
 
   /**Events button trigger ending***********************************************************************************************/
-
 });

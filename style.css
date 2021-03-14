@@ -41,6 +41,13 @@ h4{
   
 }
 
+#stat-div{
+  display:block;
+  word-wrap: break-word;
+  width: 80%;
+}
+
+
 
 #arrow{
   width: 50px;
