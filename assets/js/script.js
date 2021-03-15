@@ -285,10 +285,11 @@ $(document).ready(function () {
         );
         
         // addJsonToDom("#device-div", devices,  "No Device model info, the user is using a mobile phone glucose meter adapter");
-        console.log(devices.devices[0].transmitterGeneration, devices.devices[0].displayDevice, devices.devices[0].lastUploadDate);
+        // console.log(devices.devices[0].transmitterGeneration, devices.devices[0].displayDevice, devices.devices[0].lastUploadDate);
         addJsonToDom("#device-div", devices.devices[0].transmitterGeneration);
         addJsonToDom("#device-div", devices.devices[0].displayDevice);
         addJsonToDom("#device-div",devices.devices[0].lastUploadDate);
+        
       }
     });
 
@@ -394,7 +395,7 @@ $(document).ready(function () {
           },
         ],
       });
-
+      
       var xhr = new XMLHttpRequest();
       xhr.withCredentials = true;
 
@@ -411,15 +412,22 @@ $(document).ready(function () {
             "stats",
             JSON.stringify(response)
           );
+          
         }
+        
       });
       
       var stats = getLocalStorageItem("stats", {});
       var evg = getLocalStorageItem("evgs", {});
-
       
-      addJsonToDom("#stat-div", stats, "No Stats data - todo");
+
+     
+      // addJsonToDom("#stat-div", stats, "No Stats data - todo");
       addJsonToDom("#evg-div", evg, "No EVG Data, - todo message");
+      addJsonToDom("#stat-div",stats.hypoglycemiaRisk,"No Hypoglycemic risk");
+      addJsonToDom("#stat-div",stats.min,"max");
+      
+      
 
       xhr.open(
         "POST",
@@ -448,6 +456,7 @@ $(document).ready(function () {
           // saves stats info to local storage
           var evgsInfo = localStorage.setItem("evgs", JSON.stringify(response));
         }
+       
       });
 
       xhr.open(
