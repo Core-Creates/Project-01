@@ -96,8 +96,8 @@
   <div id="home" class="row">
     <div class="col s8">
       <div class="row">
-        <div class="col s12">
-          <input id="graphInput" type="number" placeholder="Glucose Level" />
+        <div class="col s12 ">
+          <input id="graphInput" type="number" placeholder="Glucose Level" style="background-color:rgb(235, 235, 230)"/>
           <i id="addNewBtn"><i class="candy material-icons" style="font-size: 35px">control_point</i></i>
         </div>
 
@@ -156,16 +156,16 @@
   <div id="contact" class="row">
     <div class="row input-indent">
       <div class="col s12 m6">
-        <div class="card z-depth-5">
-          <div class="card-content">
+        <div class="card z-depth-2 card-content">
+          <div>
             <form id="myForm">
               <input type="hidden" name="contact_number" />
-              <label>Name</label>
+              <label><span style="color: black; font-size: 20px;">Name</span></label>
               <input type="text" name="user_name" />
-              <label>Email</label>
+              <label><span style="color: black; font-size: 15px;">Email</span></label>
               <input type="email" name="user_email" />
-              <label>Message</label>
-              <textarea name="message"></textarea>
+              <label><span style="color: black; font-size: 12px;">Message</span></label>
+              <textarea name="message" style="border-radius: 5px;"></textarea>
               <input type="submit" value="Send" />
             </form>
           </div>

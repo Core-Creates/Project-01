@@ -77,6 +77,7 @@ margin-top: 15px;
 
 #graphInput:hover{
   background-color: rgba(219, 56, 151, 0.466);
+  
 }
 
 
@@ -84,13 +85,13 @@ margin-top: 15px;
   
   margin-right: 65px;
   width: 20%;
-  color: white;
+  
   text-align: center;
   border: solid rgb(142,237,179);
 }
 
 #icon{
-  background-color: rgb(214, 160, 169);
+  background-color: rgb(219, 148, 160);
 }
 
 #addNewBtn{
@@ -267,14 +268,20 @@ body{
   color: rgba(219, 56, 151, 0.897);
 }
 
+.card-content{
+  margin-left: 45px;
+  padding: 30px;
+  width: 725px;
+}
 
 
 .description-text{
   margin-left: 20px;
-  width: 60%;
+  width: 75%;
   font-size: 20px;
   margin-top: -30px;
-  padding: 10px;
+  padding: 30px;
+
  
   /* width: 20%; */
 }

@@ -16,19 +16,14 @@ $(document).ready(function () {
 
   function getWeeklyData() {
     // return [
-    //   {"value":67,"date":"2021-03-12","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-13","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-14","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-15","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-16","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-17","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-18","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-19","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-20","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-21","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-22","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-23","formatedDate":"2021-03-11T06:00:00.000Z"},
-    //   {"value":67,"date":"2021-03-24","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":60,"date":"2021-03-16","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":120,"date":"2021-03-17","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":140,"date":"2021-03-18","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":70,"date":"2021-03-19","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":96,"date":"2021-03-20","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":112,"date":"2021-03-21","formatedDate":"2021-03-11T06:00:00.000Z"},
+    //   // {"value":174,"date":"2021-03-22","formatedDate":"2021-03-11T06:00:00.000Z"},
+     
     // ]
     // Uncomment when done testing.
     var data = localStorage.getItem("weeklyUserData");
@@ -45,7 +40,7 @@ $(document).ready(function () {
   }
 
   //   [
-  //     // { id: "d1", value: 10, date: "2013-01-04", transformed: false },
+      // { id: "d1", value: 10, date: "2013-01-04", transformed: false },
   //     // { id: "d2", value: 11, date: "2013-02-21", transformed: false },
   //     // { id: "d3", value: 12, date: "2013-03-30", transformed: false },
   //     // { id: "d4", value: 6, date: "2013-04-15", transformed: false },
@@ -130,7 +125,7 @@ $(document).ready(function () {
       .data(data)
       .enter()
       .append("rect")
-      .style("fill", "purple")
+      .style("fill", "rgb(218, 116, 133)")
 
       .attr("x", function (d) {
         return x(d.formatedDate);
