@@ -1,3 +1,5 @@
+
+
 p{
   -webkit-text-stroke: 2px;
   -webkit-text-stroke: .5px rgb(209, 12, 209);
@@ -50,6 +52,8 @@ h4{
 .card-size{
   margin-left: 200px;
   width: 60%;
+  
+  
 }
 
 
@@ -104,6 +108,10 @@ margin-top: 15px;
  margin-left: 40px;
  background: rgb(235, 235, 230);
  border-radius: 20px;
+ max-width:100%;
+ height:auto;
+ position: relative;
+ 
 }
 
 #graphInput
@@ -117,6 +125,7 @@ margin-top: 15px;
 .card{
   border-radius: 25px;
   background: rgb(235, 235, 230);
+  
 }
 
 .material-icons:hover{
@@ -272,6 +281,7 @@ body{
   margin-left: 45px;
   padding: 30px;
   width: 725px;
+  
 }
 
 
@@ -281,6 +291,8 @@ body{
   font-size: 20px;
   margin-top: -30px;
   padding: 30px;
+  /* max-width:100%;
+  height:auto; */
 
  
   /* width: 20%; */
@@ -291,4 +303,19 @@ body{
 #events, #device,
 #contact{
   display: none;
+}
+
+@media screen and (max-width: 360px){
+
+  
+
+  .description-text{
+    margin-left: 20px;
+    width: 30%;
+    font-size: 20px;
+    margin-top: -30px;
+    padding: 30px;
+   
+  }
+
 }

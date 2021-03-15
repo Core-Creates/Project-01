@@ -30,11 +30,14 @@ function syntaxHighlight(json) {
 function addJsonToDom(elementId, data, error_message){
   let divContent = document.querySelector(elementId);
   if (data !== null && Object.keys(data).length) {
-    
     var pre = document.createElement("pre");
     pre.innerHTML = `${syntaxHighlight(data)}`;
     divContent.append(pre);
-  } else {
+  } else if (data !== null){
+    var pre = document.createElement("pre");
+    pre.innerHTML = data;
+    divContent.append(pre);
+  }else {
     breaks = document.createElement("br");
     divContent.append(breaks);
     header3 = document.createElement("h3");
@@ -42,6 +45,8 @@ function addJsonToDom(elementId, data, error_message){
     divContent.append(header3);
   }
 }
+
+
 
 function getLocalStorageItem(key, default_value_if_does_not_exist){
   var temp = localStorage.getItem(key);

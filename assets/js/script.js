@@ -281,9 +281,15 @@ $(document).ready(function () {
         localStorage.setItem(
           "devices",
           JSON.stringify(devices)
+          
         );
-        addJsonToDom("#device-div", devices,  "No Device model info, the user is using a mobile phone glucose meter adapter");
-
+        
+        // addJsonToDom("#device-div", devices,  "No Device model info, the user is using a mobile phone glucose meter adapter");
+        // console.log(devices.devices[0].transmitterGeneration, devices.devices[0].displayDevice, devices.devices[0].lastUploadDate);
+        addJsonToDom("#device-div", devices.devices[0].transmitterGeneration);
+        addJsonToDom("#device-div", devices.devices[0].displayDevice);
+        addJsonToDom("#device-div",devices.devices[0].lastUploadDate);
+        
       }
     });
 
@@ -389,7 +395,7 @@ $(document).ready(function () {
           },
         ],
       });
-
+      
       var xhr = new XMLHttpRequest();
       xhr.withCredentials = true;
 
@@ -406,15 +412,29 @@ $(document).ready(function () {
             "stats",
             JSON.stringify(response)
           );
+          
         }
+        
       });
       
       var stats = getLocalStorageItem("stats", {});
       var evg = getLocalStorageItem("evgs", {});
-
       
-      addJsonToDom("#stat-div", stats, "No Stats data - todo");
-      addJsonToDom("#evg-div", evg, "No EVG Data, - todo message");
+
+     
+      // addJsonToDom("#stat-div", stats, "No Stats data - todo");
+      
+      addJsonToDom("#stat-div", stats.hypoglycemiaRisk,"Not at Hypoglycemic risk");
+
+      addJsonToDom("#stat-div", stats.max,"Max: none");
+      addJsonToDom("#stat-div", stats.min,"Min: none");
+      addJsonToDom("#stat-div", stats.mean,"Mean: none");
+      addJsonToDom("#stat-div", stats.median,"Median: none");
+      
+
+      addJsonToDom("#evg-div", evg.unit, "No EVG Data, - todo message");
+      addJsonToDom("#evg-div", evg.rateUnit, "No EVG Data, - todo message");
+      
 
       xhr.open(
         "POST",
@@ -443,6 +463,7 @@ $(document).ready(function () {
           // saves stats info to local storage
           var evgsInfo = localStorage.setItem("evgs", JSON.stringify(response));
         }
+       
       });
 
       xhr.open(
