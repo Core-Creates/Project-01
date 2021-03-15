@@ -115,6 +115,7 @@ margin-top: 15px;
 
 .card{
   border-radius: 25px;
+  background: rgb(235, 235, 230);
 }
 
 .material-icons:hover{
@@ -273,7 +274,7 @@ body{
   width: 60%;
   font-size: 20px;
   margin-top: -30px;
-  
+  padding: 10px;
  
   /* width: 20%; */
 }
