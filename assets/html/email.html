@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
+    
+    
+
+
+
+    <title>Contact Form</title>
+  </head>
+
+  <body>
+    <div class="row">
+      <nav class="green accent-2 z-depth-5">
+        <div class="col s6"><h2>SWEET-TOOTH &trade;</h2></div>
+        <div class="col s6">
+          <div class="material-icons header-icon" style="float: right">
+            emoji_nature
+          </div>
+        </div>
+      </nav>
+    </div>
+    <ul id="slide-out" class="sidenav pink lighten-2">
+      <li>
+        <div class="user-view">
+          <a href="#user"
+            ><img
+              id="icon"
+              class="circle center z-depth-5"
+              src="/assets/13-512.webp"
+          /></a>
+        </div>
+      </li>
+      <li class="center">
+        <button
+          id="home-btn"
+          class="border-radius material-icons center z-depth-5"
+          style="font-size: 50px"
+        >
+          emoji_nature<a href="#!" class="margin-left"></a>
+        </button>
+        <h3>Home</h3>
+      </li>
+      <li class="center">
+        <button
+          id="device-btn"
+          class="border-radius material-icons center z-depth-5"
+          style="font-size: 50px"
+        >
+          emoji_nature<a href="#!" class="margin-left"></a>
+        </button>
+        <h3>Device</h3>
+      </li>
+      <li class="center">
+        <button
+          id="events-btn"
+          class="border-radius material-icons center z-depth-5"
+          style="font-size: 50px"
+        >
+          emoji_nature <a href="#!" class="center"></a>
+        </button>
+        <h3>Events</h3>
+      </li>
+      
+
+      <br />
+    </ul>
+
+    <div class="row">
+      <div class="col s1.5">
+        <div>
+          <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <h3 id="menu-header">Sweet Tools</h3>
+            <img
+              id="arrow"
+              class="circle center z-depth-5"
+              src="/assets/css/pngwing.com.png" /><a href="#user"> </a
+          ></a>
+        </div>
+      </div>
+      <div class="col s6" id="welcome"></div>
+      <div id="lolipop">
+        <img
+          src="/assets/css/imgbin_lollipop-candy-land-png.png"
+          alt="Candy"
+          style="width: 100px; margin-top: -100px"
+        />
+      </div>
+    </div>
+
+    <div class="row input-indent">
+      <div class="col s12 m6">
+        <div class="card z-depth-5">
+          <div class="card-content">
+            <form id="myForm">
+              <input type="hidden" name="contact_number" />
+              <label>Name</label>
+              <input type="text" name="from_name" />
+              <label>Email</label>
+              <input type="email" name="user_email" />
+              <label>Message</label>
+              <textarea name="message"></textarea>
+              <input type="submit" value="Send" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  </body>
+</html>

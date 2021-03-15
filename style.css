@@ -1,10 +1,171 @@
-/* .container{
-    width: 400px;
-    height: 200px;
-    border: 2px solid #720570 ;
-    background-color: rgb(235, 230, 221);
-    
-} */
+
+
+p{
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke: .5px rgb(209, 12, 209);
+  -webkit-text-fill: 1px black; 
+}
+
+
+/* 2px rgb(216, 156, 216); */
+h2{
+  font-size: 3vw;;
+  color:rgb(223,107,149);
+  font-family: 'Emilys Candy', cursive;
+  margin-left: 190px;
+  padding-top: 10px;
+  margin-top: auto;
+  width: 30%;
+  width: 60%;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  
+}
+h3{
+  font-family: 'Emilys Candy', cursive;
+  font-size: 25px;
+  color: rgb(142,237,179);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+}
+
+h4{
+  font-family: 'Emilys Candy', cursive;
+  font-size: 15px;
+  color: rgb(142,237,179);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+}
+
+.input-indent{
+  margin-left: 120px;
+}
+
+.header-icon{
+  margin-right: 30px; 
+  
+}
+
+#stat-div{
+  display:block;
+  word-wrap: break-word;
+  width: 80%;
+}
+
+.card-size{
+  margin-left: 200px;
+  width: 60%;
+  
+  
+}
+
+
+#arrow{
+  width: 50px;
+  height: 50px;
+}
+
+
+#candy{
+  margin-top: -100px;
+ 
+}
+.container{
+  margin-top: -10px;
+}
+
+.header{
+margin-top: 15px;  
+}
+
+#welcome{
+  margin-left: 30px;
+}
+
+#graphInput:hover{
+  background-color: rgba(219, 56, 151, 0.466);
+  
+}
+
+
+#graphInput{
+  
+  margin-right: 65px;
+  width: 20%;
+  
+  text-align: center;
+  border: solid rgb(142,237,179);
+}
+
+#icon{
+  background-color: rgb(219, 148, 160);
+}
+
+#addNewBtn{
+  border: none;
+  cursor: pointer;
+}
+
+.graph{
+ 
+ margin-left: 40px;
+ background: rgb(235, 235, 230);
+ border-radius: 20px;
+ max-width:100%;
+ height:auto;
+ position: relative;
+ 
+}
+
+#graphInput
+{
+  border-radius: 15px;
+  float: right;
+  
+  margin-top: 30px;
+}
+
+.card{
+  border-radius: 25px;
+  background: rgb(235, 235, 230);
+  
+}
+
+.material-icons:hover{
+  background-color: rgb(142,237,179);
+}
+
+
+.pink-2{
+  color: rgb(223, 107, 149);
+}
+
+
+.border-radius {
+  border-radius: 15px;
+}
+.border {
+  border: solid rgb(142,237,179);
+}
+
+#graph{
+  border: solid rgb(142,237,179);
+  width: 700px;
+  height: 300px;
+}
+
+.heading{
+  width: 925px;
+ 
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+  }
+
+.margin-Left {
+  margin-left: 100px;
+}
 
 #description {
   background-color: rgb(235, 230, 221);
@@ -16,8 +177,6 @@
   background-color: rgb(235, 230, 221);
   height: 180px;
   width: 100%;
-  
-  
 }
 
 .bar{
@@ -25,7 +184,7 @@
 }
 
 
-  .columns{
+.columns{
       background: #2c3e50;
     -webkit-columns: 100px 4;
     -moz-columns: 100px 4;
@@ -47,13 +206,13 @@
   } 
 
 
-#graph
+#graph,
+.graphInput
  {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
+ }
+
+ 
 
 .axis {
   font: 10px sans-serif;
@@ -68,4 +227,95 @@
 
 .green {
   fill: rgb(143, 216, 137);
+}
+
+.indent {
+  margin-left: 400px;
+}
+
+body{
+  background: linear-gradient(to bottom left, rgba(223, 107, 150, 0.363), rgba(140, 180, 159, 0.219));
+}
+
+.candy{
+  margin-top: 40px;
+  float: right;
+  border-radius: 40px;
+
+  
+}
+
+#candy{
+  width: 80px;
+  height: 80px;
+  margin-left: 50px;
+  margin-top: 30px;  
+}
+
+
+#menu-header:hover{
+  background-color: rgb(219, 56, 151, 0.897);
+  border-radius: 15px;
+}
+
+
+#menu-header{
+  /* margin-left: 40px; */
+
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(219, 56, 151, 0.897);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:rgba(219, 56, 151, 0.897);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(219, 56, 151, 0.897);
+}
+
+.card-content{
+  margin-left: 45px;
+  padding: 30px;
+  width: 725px;
+  
+}
+
+
+.description-text{
+  margin-left: 20px;
+  width: 75%;
+  font-size: 20px;
+  margin-top: -30px;
+  padding: 30px;
+  /* max-width:100%;
+  height:auto; */
+
+ 
+  /* width: 20%; */
+}
+
+
+#home{}
+#events, #device,
+#contact{
+  display: none;
+}
+
+@media screen and (max-width: 360px){
+
+  
+
+  .description-text{
+    margin-left: 20px;
+    width: 30%;
+    font-size: 20px;
+    margin-top: -30px;
+    padding: 30px;
+   
+  }
+
 }
