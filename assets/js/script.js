@@ -281,9 +281,14 @@ $(document).ready(function () {
         localStorage.setItem(
           "devices",
           JSON.stringify(devices)
+          
         );
-        addJsonToDom("#device-div", devices,  "No Device model info, the user is using a mobile phone glucose meter adapter");
-
+        
+        // addJsonToDom("#device-div", devices,  "No Device model info, the user is using a mobile phone glucose meter adapter");
+        console.log(devices.devices[0].transmitterGeneration, devices.devices[0].displayDevice, devices.devices[0].lastUploadDate);
+        addJsonToDom("#device-div", devices.devices[0].transmitterGeneration);
+        addJsonToDom("#device-div", devices.devices[0].displayDevice);
+        addJsonToDom("#device-div",devices.devices[0].lastUploadDate);
       }
     });
 
