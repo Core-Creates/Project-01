@@ -207,7 +207,7 @@ $(document).ready(function () {
   });
   /************************* Ending of ready state change function ***/
 
-  var localDevelopment = true;
+  var localDevelopment = false;
 
   if (localDevelopment) {
     var client_id = "EYCJETfiRrSVmqH8XyIGxscQpFqKGXnh";
