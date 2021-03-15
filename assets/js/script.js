@@ -423,10 +423,17 @@ $(document).ready(function () {
 
      
       // addJsonToDom("#stat-div", stats, "No Stats data - todo");
-      addJsonToDom("#evg-div", evg, "No EVG Data, - todo message");
-      addJsonToDom("#stat-div",stats.hypoglycemiaRisk,"No Hypoglycemic risk");
-      addJsonToDom("#stat-div",stats.min,"max");
       
+      addJsonToDom("#stat-div", stats.hypoglycemiaRisk,"Not at Hypoglycemic risk");
+
+      addJsonToDom("#stat-div", stats.max,"Max: none");
+      addJsonToDom("#stat-div", stats.min,"Min: none");
+      addJsonToDom("#stat-div", stats.mean,"Mean: none");
+      addJsonToDom("#stat-div", stats.median,"Median: none");
+      
+
+      addJsonToDom("#evg-div", evg.unit, "No EVG Data, - todo message");
+      addJsonToDom("#evg-div", evg.rateUnit, "No EVG Data, - todo message");
       
 
       xhr.open(
